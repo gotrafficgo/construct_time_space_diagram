@@ -45,12 +45,11 @@ The input file should be in **CSV format**, with each row corresponding to a tra
 
 | Column | Name | Unit | Description |
 | --- | --- | --- | --- |
-| 1 | Vehicle ID | – | Vehicle identifier; **not used by this method**. |
+| 1 | Vehicle ID | – | Vehicle identifier; **not necessary for this method**. |
 | 2 | Time | s | Timestamp in seconds. |
 | 3 | Location | m | Position along the road in meters. |
 | 4 | Speed | km/h | Vehicle speed. |
 
-Columns are read by position. A header is optional; if included, its second column should be `Time` or `Timestamp`. The location column may be named `Location` or `Position`. Each speed observation has equal weight in its cell.
 
 ## Citation
 
