@@ -12,7 +12,11 @@
 
 ## Comparison with rectangular cells
 
-![Rectangular and parallelogram speed contour diagrams for ZenTrafficData TRJ_11 Lane 1](results/trj11_lane1/F001/comparison.png)
+<p align="center">
+  <img src="results/trj11_lane1/F001/comparison.png"
+       alt="Rectangular and parallelogram speed contour diagrams for ZenTrafficData TRJ_11 Lane 1"
+       width="600">
+</p>
 
 **Top:** rectangular cells. **Bottom:** parallelogram cells. The example uses ZenTrafficData `TRJ_11/Lane1/F001.csv`, with cells of **30 s × 50 m** and a wave speed of **−16 km/h**. Both panels use reversed jet (`jet_r`): red indicates low speed and blue indicates high speed. Gray regions have no observations. The wave speed is configurable and has not been calibrated to this dataset.
 
