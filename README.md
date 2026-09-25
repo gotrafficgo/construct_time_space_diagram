@@ -1,4 +1,4 @@
-# Constructing spatiotemporal speed contour diagrams using parallelogram cells
+# Constructing time-space diagrams by considering wave speed
 
 **[Background]** Spatiotemporal speed contour diagrams describe how traffic speed changes over time and space. They are commonly constructed by averaging speed observations within rectangular cells.
 
@@ -66,7 +66,3 @@ If you find this work useful, please consider citing our paper:
   doi     = {10.1080/21680566.2017.1320774}
 }
 ```
-
-## License
-
-The code is released under the [MIT License](LICENSE). Third-party datasets retain their original licenses and terms.
