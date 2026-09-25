@@ -1,0 +1,16 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+build/
+dist/
+outputs/
+.mplconfig/
+# Include dataset archives, but ignore extracted files and macOS metadata.
+data/**
+!data/**/
+!data/**/*.zip
+data/**/__MACOSX/
+# Keep the local paper PDF out of the repository.
+paper/
