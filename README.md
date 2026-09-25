@@ -19,7 +19,7 @@
        width="600">
 </p>
 
-**Top:** rectangular cells. **Bottom:** parallelogram cells. The example uses ZenTrafficData `TRJ_11/Lane1/F001.csv`, with cells of **30 s × 50 m** and a wave speed of **−16 km/h**. Both panels use reversed jet (`jet_r`): red indicates low speed and blue indicates high speed. Gray regions have no observations. The wave speed is configurable and has not been calibrated to this dataset.
+**Top:** rectangular cells. **Bottom:** parallelogram cells. The example uses ZenTrafficData `TRJ_11/Lane1/F001.csv`, with cells of **30 s × 50 m** and a wave speed of **−16 km/h**. The wave speed is configurable and has not been calibrated to this dataset.
 
 
 ## Code
