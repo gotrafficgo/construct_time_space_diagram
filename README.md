@@ -6,7 +6,7 @@ Based on the method proposed by [He et al. (2019)](#reference), this Python impl
 
 ## Demo
 
-![Rectangular and wave-aligned parallelogram speed diagrams for ZenTrafficData TRJ_11 Lane 1 F001](docs/results/trj11_lane1/F001/comparison.png)
+![Rectangular and wave-aligned parallelogram speed diagrams for ZenTrafficData TRJ_11 Lane 1 F001](results/trj11_lane1/F001/comparison.png)
 
 **Top:** rectangular cells. **Bottom:** parallelogram cells aligned with a backward-moving wave. Both panels use the same color scale: **red indicates low speed; blue indicates high speed** (`jet_r`).
 
@@ -16,11 +16,11 @@ All five Lane 1 files are processed separately. Results are preserved in the rep
 
 | Input file | Comparison | Complete results |
 | --- | --- | --- |
-| F001 | [View image](docs/results/trj11_lane1/F001/comparison.png) | [Figures, CSVs, metadata](docs/results/trj11_lane1/F001/) |
-| F002 | [View image](docs/results/trj11_lane1/F002/comparison.png) | [Figures, CSVs, metadata](docs/results/trj11_lane1/F002/) |
-| F003 | [View image](docs/results/trj11_lane1/F003/comparison.png) | [Figures, CSVs, metadata](docs/results/trj11_lane1/F003/) |
-| F004 | [View image](docs/results/trj11_lane1/F004/comparison.png) | [Figures, CSVs, metadata](docs/results/trj11_lane1/F004/) |
-| F005 | [View image](docs/results/trj11_lane1/F005/comparison.png) | [Figures, CSVs, metadata](docs/results/trj11_lane1/F005/) |
+| F001 | [View image](results/trj11_lane1/F001/comparison.png) | [Figures, CSVs, metadata](results/trj11_lane1/F001/) |
+| F002 | [View image](results/trj11_lane1/F002/comparison.png) | [Figures, CSVs, metadata](results/trj11_lane1/F002/) |
+| F003 | [View image](results/trj11_lane1/F003/comparison.png) | [Figures, CSVs, metadata](results/trj11_lane1/F003/) |
+| F004 | [View image](results/trj11_lane1/F004/comparison.png) | [Figures, CSVs, metadata](results/trj11_lane1/F004/) |
+| F005 | [View image](results/trj11_lane1/F005/comparison.png) | [Figures, CSVs, metadata](results/trj11_lane1/F005/) |
 
 [Quick start](#quick-start) · [Input format](#input-format) · [Options](#command-line-options) · [Method](#how-it-works) · [Reference](#reference)
 
@@ -214,6 +214,20 @@ sample_counts = parallelogram.count
 time_vertices, location_vertices = parallelogram.vertices()
 ```
 
+## Repository layout
+
+```text
+src/        Python package and command-line interface
+examples/   Synthetic-data example generator
+tests/      Algorithm tests
+data/       Source dataset ZIP archives (extracted files are ignored)
+results/    Published demo figures, cell statistics, and metadata
+```
+
+`outputs/` is created only when running commands that use it as an output path.
+It is ignored by Git and can be deleted after use. Published demo results live
+in `results/` and are tracked by Git.
+
 ## Development
 
 Run the tests after installation:
@@ -224,10 +238,10 @@ python -m unittest discover -s tests -v
 
 Tests cover hand-calculated rectangular means, wave-aligned geometry, direct geometric membership, boundary-point conservation, independence from vehicle IDs, and preservation of observed values during filling.
 
-The real-data demo results are stored in `docs/results/trj11_lane1/`, so GitHub displays them even though temporary `outputs/` files and extracted datasets are ignored. To refresh one of the published results after extracting the archive:
+The real-data demo results are stored in `results/trj11_lane1/`, so GitHub displays them even though temporary `outputs/` files and extracted datasets are ignored. To refresh one of the published results after extracting the archive:
 
 ```bash
-tx-diagram data/ZenTrafficData/TRJ_11/Lane1/F001.csv --output docs/results/trj11_lane1/F001
+tx-diagram data/ZenTrafficData/TRJ_11/Lane1/F001.csv --output results/trj11_lane1/F001
 ```
 
 An optional synthetic-data generator remains available for development:
