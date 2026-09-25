@@ -1,0 +1,33 @@
+{
+  "input": "data/ZenTrafficData/TRJ_11/Lane1/F002.csv",
+  "input_rows": 264725,
+  "dt_s": 30,
+  "dx_m": 50,
+  "wave_speed_kmh": -16,
+  "fill": "none",
+  "bounds": [
+    1.0,
+    3817.0,
+    3.30000000000009,
+    2072.82857142857
+  ],
+  "vmax_kmh": 106.28,
+  "statistics": {
+    "rectangular": {
+      "samples": 264725,
+      "active_cells": 5376,
+      "empty_before": 145,
+      "filled_cells": 0,
+      "empty_after": 145,
+      "shear_s_per_m": 0.0
+    },
+    "parallelogram": {
+      "samples": 264725,
+      "active_cells": 5396,
+      "empty_before": 142,
+      "filled_cells": 0,
+      "empty_after": 142,
+      "shear_s_per_m": -0.225
+    }
+  }
+}

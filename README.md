@@ -6,27 +6,37 @@ Based on the method proposed by [He et al. (2019)](#reference), this Python impl
 
 ## Demo
 
-![Rectangular and wave-aligned parallelogram speed diagrams using synthetic observations](docs/images/demo-comparison.png)
+![Rectangular and wave-aligned parallelogram speed diagrams for ZenTrafficData TRJ_11 Lane 1 F001](docs/results/trj11_lane1/F001/comparison.png)
 
 **Top:** rectangular cells. **Bottom:** parallelogram cells aligned with a backward-moving wave. Both panels use the same color scale: **red indicates low speed; blue indicates high speed** (`jet_r`).
 
-The example uses 20,000 reproducible **synthetic speed observations**, a 30 s cell width, a 50 m cell height, and a wave speed of **−16 km/h**. These observations are generated from a prescribed speed field, not measured vehicle trajectories. The illustration shows the grid geometry; it is not an independent validation of the method.
+The demo uses **254,534 observations from ZenTrafficData `TRJ_11/Lane1/F001.csv`**, a 30 s cell width, a 50 m cell height, and a wave speed of **−16 km/h**. Empty-cell filling is disabled. The wave speed is a configurable default, not an estimate calibrated to this dataset.
+
+All five Lane 1 files are processed separately. Results are preserved in the repository, including PNG/SVG figures, cell statistics in CSV format, and metadata:
+
+| Input file | Comparison | Complete results |
+| --- | --- | --- |
+| F001 | [View image](docs/results/trj11_lane1/F001/comparison.png) | [Figures, CSVs, metadata](docs/results/trj11_lane1/F001/) |
+| F002 | [View image](docs/results/trj11_lane1/F002/comparison.png) | [Figures, CSVs, metadata](docs/results/trj11_lane1/F002/) |
+| F003 | [View image](docs/results/trj11_lane1/F003/comparison.png) | [Figures, CSVs, metadata](docs/results/trj11_lane1/F003/) |
+| F004 | [View image](docs/results/trj11_lane1/F004/comparison.png) | [Figures, CSVs, metadata](docs/results/trj11_lane1/F004/) |
+| F005 | [View image](docs/results/trj11_lane1/F005/comparison.png) | [Figures, CSVs, metadata](docs/results/trj11_lane1/F005/) |
 
 [Quick start](#quick-start) · [Input format](#input-format) · [Options](#command-line-options) · [Method](#how-it-works) · [Reference](#reference)
 
 ## Quick start
 
-Requires **Python 3.9+**, NumPy, and Matplotlib. From the repository root, install the package and run the self-contained demo:
+Requires **Python 3.9+**, NumPy, and Matplotlib. From the repository root, install the package and reproduce the ZenTrafficData demo:
 
 ```bash
 git clone https://github.com/gotrafficgo/construct_time_space_diagram.git
 cd construct_time_space_diagram
 python -m pip install -e .
-python examples/generate_demo.py
-tx-diagram outputs/demo/input.csv --output outputs/demo/result
+python -m zipfile -e data/ZenTrafficData/TRJ_11.zip data/ZenTrafficData
+tx-diagram data/ZenTrafficData/TRJ_11/Lane1/F001.csv --output outputs/trj11_lane1_f001
 ```
 
-Open `outputs/demo/result/comparison.png` to see the result. No external dataset is needed for this example.
+Open `outputs/trj11_lane1_f001/comparison.png` to see the result. The source ZIP is included; extracted CSV files are ignored by Git and can be removed after generating the results.
 
 To process your own observations:
 
@@ -79,18 +89,18 @@ Columns are read **by position**, so `Position` and `Location` are both valid na
 Datasets are included as ZIP archives in `data/`. Extract the archive before passing a CSV to the program (ZIP input is not read directly):
 
 ```bash
-python -m zipfile -e data/ZenTrafficData/TRJ_4.zip data/ZenTrafficData
+python -m zipfile -e data/ZenTrafficData/TRJ_11.zip data/ZenTrafficData
 ```
 
 Then run:
 
 ```bash
-tx-diagram data/ZenTrafficData/TRJ_4/Lane1/F001.csv \
+tx-diagram data/ZenTrafficData/TRJ_11/Lane1/F001.csv \
   --dt 30 --dx 50 --wave-speed -16 \
-  --output outputs/trj4_lane1_f001
+  --output outputs/trj11_lane1_f001
 ```
 
-Process lanes and files separately unless their relationship is known. The `TRJ_4` files `F001`–`F005` have overlapping time ranges and should not automatically be concatenated as consecutive periods. Git includes ZIP archives under `data/` but ignores extracted files. The local paper PDF in `paper/` is also ignored.
+Process lanes and files separately unless their relationship is known. The `TRJ_4` and `TRJ_11` files `F001`–`F005` have overlapping time ranges and should not automatically be concatenated as consecutive periods. Git includes ZIP archives under `data/` but ignores extracted files. The local paper PDF in `paper/` is also ignored.
 
 Available archives:
 
@@ -214,10 +224,17 @@ python -m unittest discover -s tests -v
 
 Tests cover hand-calculated rectangular means, wave-aligned geometry, direct geometric membership, boundary-point conservation, independence from vehicle IDs, and preservation of observed values during filling.
 
-The embedded demo image is stored in `docs/images/`, so GitHub can display it even though generated `outputs/` files are ignored. To refresh it after regenerating the demo:
+The real-data demo results are stored in `docs/results/trj11_lane1/`, so GitHub displays them even though temporary `outputs/` files and extracted datasets are ignored. To refresh one of the published results after extracting the archive:
 
 ```bash
-python -c "import shutil; shutil.copyfile('outputs/demo/result/comparison.png', 'docs/images/demo-comparison.png')"
+tx-diagram data/ZenTrafficData/TRJ_11/Lane1/F001.csv --output docs/results/trj11_lane1/F001
+```
+
+An optional synthetic-data generator remains available for development:
+
+```bash
+python examples/generate_demo.py
+tx-diagram outputs/demo/input.csv --output outputs/demo/result
 ```
 
 ## Reference
