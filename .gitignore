@@ -12,5 +12,3 @@ data/**
 !data/**/
 !data/**/*.zip
 data/**/__MACOSX/
-# Keep the local paper PDF out of the repository.
-paper/
