@@ -10,15 +10,11 @@
 
 **[Paper]** [Constructing spatiotemporal speed contour diagrams: using rectangular or non-rectangular parallelogram cells?](https://doi.org/10.1080/21680566.2017.1320774)
 
-## Comparison with rectangular cells
-
 <p align="center">
-  <img src="results/trj11_lane1/F001/comparison.png"
-       alt="Rectangular and parallelogram speed contour diagrams for ZenTrafficData TRJ_11 Lane 1"
+  <img src="paper/fig4.png"
+       alt="Rectangular and parallelogram speed contour diagrams"
        width="600">
 </p>
-
-**Top:** rectangular cells. **Bottom:** parallelogram cells. The example uses ZenTrafficData `TRJ_11/Lane1/F001.csv`, with cells of **30 s × 50 m** and a wave speed of **−16 km/h**. Both panels use reversed jet (`jet_r`): red indicates low speed and blue indicates high speed. Gray regions have no observations. The wave speed is configurable and has not been calibrated to this dataset.
 
 ## Code
 
@@ -35,6 +31,18 @@ tx-diagram data/ZenTrafficData/TRJ_11/Lane1/F001.csv --output results/trj11_lane
 To use your own data, replace the CSV path. By default, the tool generates both diagrams with a **30 s** cell width, **50 m** cell height, **−16 km/h** wave speed, and no empty-cell filling. Use `--dt`, `--dx`, and `--wave-speed` to change these settings; `--mode rectangular` or `--mode parallelogram` selects one method. Run `tx-diagram --help` for all options.
 
 Results include PNG/SVG figures, cell statistics in CSV format, and a JSON parameter record. Published examples are saved in [results/](results/). Dataset ZIP archives are kept in [data/](data/); extracted files can be deleted after generating the results.
+
+
+## Comparison with rectangular cells
+
+<p align="center">
+  <img src="results/trj11_lane1/F001/comparison.png"
+       alt="Rectangular and parallelogram speed contour diagrams for ZenTrafficData TRJ_11 Lane 1"
+       width="600">
+</p>
+
+**Top:** rectangular cells. **Bottom:** parallelogram cells. The example uses ZenTrafficData `TRJ_11/Lane1/F001.csv`, with cells of **30 s × 50 m** and a wave speed of **−16 km/h**. Both panels use reversed jet (`jet_r`): red indicates low speed and blue indicates high speed. Gray regions have no observations. The wave speed is configurable and has not been calibrated to this dataset.
+
 
 ## Input Trajectory Data Format
 
@@ -54,8 +62,7 @@ Columns are read by position. A header is optional; if included, its second colu
 If you find this work useful, please consider citing our paper:
 
 > **Constructing spatiotemporal speed contour diagrams: using rectangular or non-rectangular parallelogram cells?**  
-> Zhengbing He, Ying Lv, Lili Lu, Wei Guan  
-> *Transportmetrica B: Transport Dynamics*, 7(1), 44–60, 2019.  
+> Zhengbing He, Ying Lv, Lili Lu, Wei Guan, *Transportmetrica B: Transport Dynamics*, 7(1), 44–60, 2019.  
 > [doi:10.1080/21680566.2017.1320774](https://doi.org/10.1080/21680566.2017.1320774)
 
 ```bibtex
