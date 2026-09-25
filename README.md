@@ -1,6 +1,6 @@
-# Constructing time-space diagrams by considering wave speed
+# Constructing better time-space diagrams by considering wave speed
 
-**[Background]** Time-space traffic diagrams (or spatiotemporal speed contour diagrams) visualize how traffic dynamics (speed changes) over time and space. They are commonly constructed by averaging speed observations within **rectangular cells**.
+**[Background]** Time-space traffic diagrams (or spatiotemporal speed contour diagrams) **visualize how traffic dynamics** (speed changes) over time and space. They are commonly constructed by averaging speed observations within **rectangular cells**.
 
 **[Gap]** Rectangular cells do not follow the propagation direction of traffic waves, which can blur stop-and-go patterns and affect travel-time estimates.
 
